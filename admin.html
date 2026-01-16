@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h5 class="mb-3">{{ t["admin_panel"] }} - {{ t["history"] }}</h5>
+
+    <div class="table-responsive">
+      <table class="table table-striped table-sm">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>User</th>
+            <th>{{ t["day"] }}</th>
+            <th>{{ t["hour"] }}</th>
+            <th>{{ t["injuries"] }}</th>
+            <th>{{ t["location"] }}</th>
+            <th>{{ t["result"] }}</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for r in rows %}
+          <tr>
+            <td>{{ r["id"] }}</td>
+            <td>{{ r["username"] }}</td>
+            <td>{{ r["day"] }}</td>
+            <td>{{ r["hour"] }}</td>
+            <td>{{ r["injuries"] }}</td>
+            <td>{{ r["location"] }}</td>
+            <td><span class="badge bg-primary">{{ r["prediction_result"] }}</span></td>
+            <td>{{ r["created_at"] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

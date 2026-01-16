@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+
+  <!-- Project Title -->
+  <div class="project-title-box text-center mb-4">
+    {{ t["project_title"] }}
+  </div>
+
+  <div class="col-md-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+
+        <!-- Login Title -->
+        <h4 class="mb-3 text-center">{{ t["login"] }}</h4>
+
+        <!-- Welcome Message -->
+        <p class="login-welcome text-center">
+          {% if lang == "ar" %}
+            مرحبًا بك في نظام التنبؤ بحوادث المرور<br>
+            يرجى تسجيل الدخول للوصول إلى خدمات النظام
+          {% else %}
+            Welcome to the Traffic Accident Prediction System<br>
+            Please sign in to access system features
+          {% endif %}
+        </p>
+
+        <!-- Login Form -->
+        <form method="POST">
+          <div class="mb-3">
+            <label class="form-label">{{ t["username"] }}</label>
+            <input name="username" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">{{ t["password"] }}</label>
+            <input name="password" type="password" class="form-control" required>
+          </div>
+
+          <button class="btn btn-primary w-100">
+            {{ t["submit"] }}
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
